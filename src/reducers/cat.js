@@ -9,16 +9,19 @@ const initialState = {
 export default function catReducer(state=initialState, action){
 
 if(action.type === FETCH_CAT_REQUEST){
+    console.log('fetchcat reqest');
     return Object.assign({}, state, {
         loading: true
       });
 }
 
 else if(action.type === FETCH_CAT_SUCCESS){
+    console.log('action cat',action.cat);
     return Object.assign({}, state, {
         loading: false,
         cat: action.cat
     });
+   
 }
 
 else if(action.type === FETCH_CAT_ERROR){
@@ -46,4 +49,6 @@ else if(action.type === DELETE_CAT_ERROR){
         err: action.err
     })
 }  
+
+return state;
 }

@@ -1,20 +1,43 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {adoptCat, fetchCat} from '../actions/cat';
+import {adoptDog, fetchDog} from '../actions/dog';
 import Pets from './Pets';
 
-export default class Dashboard extends React.Component {
+export class Dashboard extends React.Component {
+
+    componentDidMount(){
+        console.log('component mounted');
+         this.props.dispatch(fetchCat());
+         this.props.dispatch(fetchDog());
+    }
+
+  
+
+
+
     render(){
-        console.log(this.props.catToAdopt);
+        console.log('MY PROPS',this.props);
         return (
             <div>
                 <Pets 
                 adoptee={this.props.catToAdopt}
-                onAdoptPet={()=>console.log('adopted!')}
+                onAdoptPet={()=>this.props.dispatch(adoptCat())}
                 ></Pets>
                 <Pets 
                 adoptee={this.props.dogToAdopt}
-                onAdoptPet={() => console.log('adopted!')}
+                onAdoptPet={()=>this.props.dispatch(adoptDog())}
                 ></Pets>
             </div>
+            
         )
     }
 }
+
+const mapStateToProps = state => ({
+    dogToAdopt:state.dogReducer.dog,
+    catToAdopt:state.catReducer.cat
+
+});
+
+export default connect(mapStateToProps)(Dashboard);

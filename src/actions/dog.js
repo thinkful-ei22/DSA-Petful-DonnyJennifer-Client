@@ -23,8 +23,9 @@ export const fetchDogSuccess = dog => ({
 
 export const fetchDog = () => dispatch => {
     dispatch(fetchDogRequest());
-    fetch(`${API_BASE_URL}http://localhost:8080/api/dog`)
+    fetch(`${API_BASE_URL}/api/dog`)
     .then(res =>{
+        // console.log('DOG RESPONSE',res);
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
@@ -56,8 +57,9 @@ export const deleteDogSuccess = dog => ({
 
 
 export const adoptDog = () => dispatch =>{
+    console.log('ADOPE DOG CALLED');
     dispatch(deleteDogRequest());
-    fetch(`${API_BASE_URL}http://localhost:8080/api/dog`, {
+    fetch(`${API_BASE_URL}/api/dog`, {
         method: 'DELETE',
     })
     .then(res =>{

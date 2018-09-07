@@ -46,4 +46,5 @@ else if(action.type === DELETE_DOG_ERROR){
         err: action.err
     })
 }  
+return state;
 }
