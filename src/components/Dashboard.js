@@ -7,15 +7,9 @@ import Pets from './Pets';
 export class Dashboard extends React.Component {
 
     componentDidMount(){
-        console.log('component mounted');
          this.props.dispatch(fetchCat());
          this.props.dispatch(fetchDog());
     }
-
-  
-
-
-
     render(){
         console.log('MY PROPS',this.props);
         return (
