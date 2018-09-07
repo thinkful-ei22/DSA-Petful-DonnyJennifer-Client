@@ -1,0 +1,11 @@
+.pets{
+    max-width: 300px;
+    display: inline-block;
+    margin: 20px;
+    padding:25px;
+    border-left:1px dotted grey;
+}
+
+.pets img{
+    width:100%;
+}

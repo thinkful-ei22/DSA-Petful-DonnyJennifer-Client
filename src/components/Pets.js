@@ -1,11 +1,12 @@
 import React from 'react';
+import './pets.css'
 
 export default class Pets extends React.Component {
 render(){
     return(
-<div>
+<div className="pets">
     <header>
-        <h1>{this.props.adoptee.name}</h1>
+        <h1> {this.props.adoptee.name} </h1>
         <img src={this.props.adoptee.imageURL} alt={this.props.adoptee.description}></img>
     </header>
     <main>
@@ -21,7 +22,7 @@ render(){
         </dl>
         <button onClick={e=> {
             e.preventDefault();
-            this.props.onAdoptPet()}}>Adopt!</button>
+            this.props.onAdoptPet()}}>  Adopt!</button>
     </main>
 </div>
     );
