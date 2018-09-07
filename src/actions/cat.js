@@ -1,9 +1,11 @@
 import {API_BASE_URL} from '../config';
 
 export const FETCH_CAT_REQUEST = 'FETCH_CAT_REQUEST';
-export const fetchCatRequest = () => ({
+export const fetchCatRequest = () => 
+(
+    {
     type: FETCH_CAT_REQUEST,
- 
+
 });
 
 
@@ -22,6 +24,7 @@ export const fetchCatSuccess = cat => ({
 
 
 export const fetchCat = () => dispatch => {
+    console.log('fetchcat called');
     dispatch(fetchCatRequest());
     fetch(`${API_BASE_URL}/api/cat`)
     .then(res =>{
@@ -58,6 +61,7 @@ export const deleteCatSuccess = cat => ({
 
 
 export const adoptCat = () => dispatch =>{
+    console.log('ADOPE DOG CALLED');
     dispatch(deleteCatRequest());
     fetch(`${API_BASE_URL}/api/cat`, {
         method: 'DELETE',
